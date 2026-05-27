@@ -3,6 +3,7 @@ from datetime import datetime
 def get_number(question, minimum_value, maximum_value=None):
 
     while True:
+
         user_input = input(question)
 
         try:
@@ -24,12 +25,16 @@ def get_number(question, minimum_value, maximum_value=None):
 def get_valid_date(prompt):
 
     while True:
+
         user_input = input(prompt)
 
         try:
             datetime.strptime(user_input, "%Y-%m-%d")
-
             return user_input
-        
+
         except ValueError:
-            print("Invalid date. Please enter YYYY-MM-DD format.")
+            print("Invalid date. Please use YYYY-MM-DD format.")
+
+            
+                        
+
