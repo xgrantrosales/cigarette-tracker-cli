@@ -2,29 +2,24 @@
 
 A Python command-line application for tracking daily cigarette usage.
 
-This project was built while learning Python step by step through real project development and refactoring practices.
+This project was built while learning Python step by step through real project development, refactoring, and backend-focused programming concepts.
 
 ---
 
 ## Current Version
 
-### Version 1 — JSON CRUD CLI App
+### Version 2 — SQLite CRUD CLI App
 
 This version uses:
 
-* JSON file storage
+* SQLite database storage
 * CRUD operations
-* Modular Python structure
+* Modular Python architecture
 * Input validation
-* Persistent local data
+* Duplicate-date prevention
+* Persistent local database storage
 
-Future versions of this project will include:
-
-* SQLite database integration
-* Better analytics and reporting
-* Charts and visualizations
-* Streamlit web interface
-* Deployment
+This project originally started as a JSON-based CRUD application and was later refactored into a SQLite-powered version to practice backend development concepts and database integration.
 
 ---
 
@@ -34,16 +29,20 @@ Future versions of this project will include:
 * View smoking summaries
 * Edit records
 * Delete records
-* Save/load records using JSON
+* Prevent duplicate dates
+* SQLite database integration
 * Input validation for numbers and dates
 * Modular file organization
+* Summary statistics and analytics
 
 ---
 
 ## Technologies Used
 
 * Python
-* JSON
+* SQLite
+* Git
+* GitHub
 
 ---
 
@@ -54,7 +53,6 @@ cig-trak/
 ├── main.py
 ├── helpers.py
 ├── data_manager.py
-├── cigarette_data.json
 ├── README.md
 └── .gitignore
 ```
@@ -79,22 +77,37 @@ This project was created to practice:
 * Python fundamentals
 * Functions
 * Loops
-* Dictionaries and lists
 * CRUD operations
 * Modular programming
 * Input validation
-* File handling
+* SQLite database integration
+* Backend application flow
 * Refactoring
 * Git and GitHub workflow
+* Basic backend architecture concepts
+
+---
+
+## Backend Concepts Practiced
+
+* Database connections
+* SQL queries
+* CREATE, INSERT, SELECT, UPDATE, DELETE operations
+* Record validation
+* Duplicate-data prevention
+* Separation of concerns
+* Business logic handling
+* Data persistence
 
 ---
 
 ## Planned Improvements
 
-* SQLite database version
-* Sorting and filtering
-* Better reporting and analytics
-* Streamlit UI version
+* Search and filtering
+* Better analytics and reporting
+* API integration practice
+* Flask web version
 * Authentication system (future)
+* Deployment
 
 ---

@@ -1,5 +1,6 @@
 from datetime import datetime
 
+# Validates integer input and allowed range.
 def get_number(question, minimum_value, maximum_value=None):
 
     while True:
@@ -13,6 +14,7 @@ def get_number(question, minimum_value, maximum_value=None):
                 print(f"Please enter a number greater than or equal to {minimum_value}.")
                 continue
 
+            # Only checks maximum_value if one is provided.
             if maximum_value is not None and number > maximum_value:
                 print(f"Please enter a number less than or equal to {maximum_value}.")
                 continue
@@ -22,6 +24,7 @@ def get_number(question, minimum_value, maximum_value=None):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+# Validates YYYY-MM-DD date format.
 def get_valid_date(prompt):
 
     while True:
@@ -35,6 +38,6 @@ def get_valid_date(prompt):
         except ValueError:
             print("Invalid date. Please use YYYY-MM-DD format.")
 
-            
-                        
+
+
 

@@ -1,6 +1,7 @@
 from helpers import get_number, get_valid_date
 from data_manager import connect_database, create_table, insert_record, fetch_records, update_record, delete_record
 
+# Handles adding new smoking records.
 def add_records():
 
     num_days = get_number("How many days do you want to track?\n", 1)
@@ -14,6 +15,7 @@ def add_records():
         for record in records:
             existing_dates.append(record[1])
 
+        # Prevent duplicate dates before saving to database.
         while True:
 
             date = get_valid_date("Please enter date. YYYY-MM-DD\n")
@@ -26,8 +28,10 @@ def add_records():
 
         daily_limit = get_number("What is your daily target limit?\n", 1)
         smoked = get_number("How many cigarettes have you smoked today?\n", 0)
+        # Calculates remaining cigarettes for the day.
         remaining = daily_limit - smoked
 
+        # Determines whether the user stayed within the limit.
         if smoked <= daily_limit:
             status = "Within Limit"
         else:
@@ -37,6 +41,7 @@ def add_records():
 
     print("Records saved successfully!")
 
+# Displays all saved records and summary statistics.
 def view_summary():
 
     records = fetch_records()
@@ -93,6 +98,7 @@ def view_summary():
     print(f"Highest Smoked Day: {highest_smoked_record[1]} with {highest_smoked_record[3]} cigarettes.")
     print(f"Lowest Smoked Day: {lowest_smoked_record[1]} with {lowest_smoked_record[3]} cigarettes.") 
 
+# Handles editing an existing record.
 def edit_records():
 
     records = fetch_records()
@@ -109,6 +115,7 @@ def edit_records():
 
     record_id = get_number("Please enter the record ID that you want to edit.\n", 1)
 
+    # Validates selected ID before updating record.
     if record_id not in valid_ids:
         print("Record ID not found.")
         return
@@ -125,6 +132,7 @@ def edit_records():
     update_record(record_id, new_daily_limit, new_smoked, new_remaining, new_status)    
     print("Record edited successfully!")   
 
+# Handles deleting an existing record.
 def delete_records():
 
     records = fetch_records()
@@ -141,6 +149,7 @@ def delete_records():
 
     record_id = get_number("Please enter the record ID that you want to delete.\n", 1)
 
+    # Validates selected ID before deleting record.
     if record_id not in valid_ids:
         print("Record ID not found.")
         return
@@ -148,6 +157,7 @@ def delete_records():
     delete_record(record_id)  
     print(f"ID number {record_id} deleted successfully!")
 
+# Main application loop and menu navigation.
 def main():
 
     connection = connect_database()
@@ -180,6 +190,7 @@ def main():
             print("Goodbye!")
             break
 
+# Starts the app only when main.py is executed directly.
 if __name__ == "__main__":
     main()                                                                   
 
